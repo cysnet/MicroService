@@ -26,7 +26,11 @@ namespace RestTemplateCore
         /// <returns></returns>
         private async Task<String> ResolveRootUrlAsync(String serviceName)
         {
-            using (var consulClient = new ConsulClient(c => c.Address = new Uri(ConsulServerUrl)))
+            using (var consulClient = new ConsulClient(c =>
+            {
+                c.Address = new Uri(ConsulServerUrl);
+                c.Token = "p2BE1AtpwPbrxZdC6k+eXA==";
+            }))
             {
                 var services = (await consulClient.Agent.Services()).Response.Values.Where(s => s.Service.Equals(serviceName, StringComparison.OrdinalIgnoreCase));
                 if (!services.Any())
