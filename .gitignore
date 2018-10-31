@@ -1,1 +1,8 @@
 MicroService/Properties/PublishProfiles/
+.vs/
+MicroService/bin/
+MicroService/obj/
+MicroServiceConsumer/bin/
+MicroServiceConsumer/obj/
+RestTemplateCore/bin/
+RestTemplateCore/obj/
