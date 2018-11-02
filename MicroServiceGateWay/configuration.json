@@ -17,7 +17,8 @@
   "GlobalConfiguration": {
     "ServiceDiscoveryProvider": {
       "Host": "127.0.0.1",
-      "Port": 8500
+      "Port": 8500,
+      "Token": "p2BE1AtpwPbrxZdC6k+eXA=="
     }
   }
 }

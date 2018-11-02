@@ -17,14 +17,20 @@ namespace MicroServiceGateWay
             BuildWebHost(args).Run();
         }
 
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .UseUrls("http://127.0.0.1:2000")
-                .ConfigureAppConfiguration((host, build) =>
-                {
-                    build.AddJsonFile("configuration.json", false, true);
-                })
-                .Build();
+        public static IWebHost BuildWebHost(string[] args)
+        {
+            var config = new ConfigurationBuilder().AddCommandLine(args).Build();
+            var ip = config["ip"];
+            var port = config["port"];
+
+            return WebHost.CreateDefaultBuilder(args)
+                    .UseStartup<Startup>()
+                    .UseUrls($"http://{ip}:{port}")
+                    .ConfigureAppConfiguration((host, build) =>
+                    {
+                        build.AddJsonFile("configuration.json", false, true);
+                    })
+                    .Build();
+        }
     }
 }

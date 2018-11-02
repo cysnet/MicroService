@@ -7,3 +7,13 @@ MicroServiceConsumer/obj/
 RestTemplateCore/bin/
 RestTemplateCore/obj/
 MicroServiceConsumer/Properties/PublishProfiles/
+AopTest/bin/
+AopTest/obj/
+MicroServiceGateWay/bin/
+MicroServiceGateWay/obj/
+MicroServiceIdentityServer/bin/
+MicroServiceIdentityServer/obj/
+PollyAspectCore/bin/
+PollyAspectCore/obj/
+PollyTest/bin/
+PollyTest/obj/
