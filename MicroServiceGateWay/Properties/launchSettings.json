@@ -10,6 +10,7 @@
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
+      "commandLineArgs": "--ip 127.0.0.1 --port 2000 --identityip 127.0.0.1 --identityport 3000",
       "launchBrowser": true,
       "launchUrl": "api/values",
       "environmentVariables": {
@@ -18,6 +19,7 @@
     },
     "MicroServiceGateWay": {
       "commandName": "Project",
+      "commandLineArgs": "--ip 127.0.0.1 --port 2000 --identityip 127.0.0.1 --identityport 3000",
       "launchBrowser": true,
       "launchUrl": "api/values",
       "environmentVariables": {

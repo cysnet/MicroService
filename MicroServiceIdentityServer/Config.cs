@@ -1,4 +1,5 @@
-﻿using IdentityServer4.Models;
+﻿using IdentityServer4;
+using IdentityServer4.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,14 +26,19 @@ namespace MicroServiceIdentityServer
             clients.Add(new Client
             {
                 ClientId = "clientPC1",//API账号、客户端Id  
+                AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                 //ClientName="clientPC1",
                 ClientSecrets =
                 {
                     new Secret("123321".Sha256())//秘钥          
                 },
-                AllowedGrantTypes = GrantTypes.ClientCredentials,
      
-                AllowedScopes = { "MsgAPI" }//这个账号支持访问哪些应用       
+                AllowedScopes =
+                {
+                    "MsgAPI",
+                    IdentityServerConstants.StandardScopes.OpenId, //必须要添加，否则报forbidden错误
+                    IdentityServerConstants.StandardScopes.Profile
+                }//这个账号支持访问哪些应用       
             });
             return clients;
         }

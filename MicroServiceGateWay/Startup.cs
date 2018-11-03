@@ -27,16 +27,29 @@ namespace MicroServiceGateWay
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            ////指定Identity Server的信息           
+            //Action<IdentityServerAuthenticationOptions> isaOptMsg = o => {
+            //    o.Authority =$"http://{Configuration["identityip"]}:{Configuration["identityport"]}";
+            //    o.ApiName = "MsgAPI";//要连接的应用的名字            
+            //    o.RequireHttpsMetadata = false;
+            //    o.SupportedTokens = SupportedTokens.Both;
+            //    o.ApiSecret = "123321";//秘钥            
+            //};
+
+            //services.AddAuthentication()         
+            //    .AddIdentityServerAuthentication("MsgKey", isaOptMsg);
+            //services.AddOcelot(Configuration).AddConsul();
+
             //指定Identity Server的信息           
             Action<IdentityServerAuthenticationOptions> isaOptMsg = o => {
-                o.Authority = "http://127.0.0.1:3000";
+                o.Authority = $"http://{Configuration["identityip"]}:{Configuration["identityport"]}";
                 o.ApiName = "MsgAPI";//要连接的应用的名字            
                 o.RequireHttpsMetadata = false;
-                o.SupportedTokens = SupportedTokens.Both;
-                o.ApiSecret = "123321";//秘钥            
+                //o.SupportedTokens = SupportedTokens.Both;
+                //o.ApiSecret = "123321";//秘钥            
             };
-  
-            services.AddAuthentication()         
+
+            services.AddAuthentication("Bearer")
                 .AddIdentityServerAuthentication("MsgKey", isaOptMsg);
             services.AddOcelot(Configuration).AddConsul();
             //services.AddMvc();
@@ -49,8 +62,16 @@ namespace MicroServiceGateWay
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.Use(async (context, next) =>
+            {
+                //await context.Response.WriteAsync("进入第一个委托 执行下一个委托之前\r\n");
+                //调用管道中的下一个委托
 
-            //app.UseMvc();
+                await next.Invoke();
+                //await context.Response.WriteAsync("结束第一个委托 执行下一个委托之后\r\n");
+            });
+            app.UseAuthentication();
+ 
             app.UseOcelot().Wait();//不要忘了写Wait 
         }
     }

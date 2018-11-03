@@ -13,6 +13,8 @@ namespace MicroService.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
+            var claims = HttpContext.User.Claims;
+            var user = this.User;
             return new string[] { "value233" };
         }
 
