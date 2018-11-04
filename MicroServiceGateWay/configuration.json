@@ -9,7 +9,7 @@
       "LoadBalancerOptions": { "Type": "RoundRobin" },
       "UseServiceDiscovery": true,
       "AuthenticationOptions": {
-        "AuthenticationProviderKey": "MsgKey",
+        "AuthenticationProviderKey": "",
         "AllowedScopes": []
       }
     }

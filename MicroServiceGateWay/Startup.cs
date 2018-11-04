@@ -49,12 +49,12 @@ namespace MicroServiceGateWay
                   options.RequireHttpsMetadata = false;
                   options.ApiName = "MsgAPI";
               });
-            services.AddAuthentication("Bearer")
-                .AddIdentityServerAuthentication("MsgKey", o => {
-                    o.Authority = $"http://{Configuration["iip"]}:{Configuration["iport"]}";
-                    o.ApiName = "MsgAPI";//要连接的应用的名字            
-                    o.RequireHttpsMetadata = false;           
-                });
+            //services.AddAuthentication("Bearer")
+            //    .AddIdentityServerAuthentication("MsgKey", o => {
+            //        o.Authority = $"http://{Configuration["iip"]}:{Configuration["iport"]}";
+            //        o.ApiName = "MsgAPI";//要连接的应用的名字            
+            //        o.RequireHttpsMetadata = false;           
+            //    });
             services.AddOcelot(Configuration).AddConsul();
             //services.AddMvc();
         }
