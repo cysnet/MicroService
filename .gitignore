@@ -19,3 +19,9 @@ PollyTest/bin/
 PollyTest/obj/
 IdentityClient/bin/
 IdentityClient/obj/
+MicroService.Thrift.RPC.Client/bin/
+MicroService.Thrift.RPC.Client/obj/
+MicroService.Thrift.RPC.Contract/bin/
+MicroService.Thrift.RPC.Contract/obj/
+MicroService.Thrift.RPC.Server/bin/
+MicroService.Thrift.RPC.Server/obj/

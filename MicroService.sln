@@ -19,7 +19,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroServiceGateWay", "Micr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroServiceIdentityServer", "MicroServiceIdentityServer\MicroServiceIdentityServer.csproj", "{0589678C-6EBE-4A60-A94D-0971ACE1CD08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityClient", "IdentityClient\IdentityClient.csproj", "{057F2FBD-2401-4BEF-B017-56D30A515D80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityClient", "IdentityClient\IdentityClient.csproj", "{057F2FBD-2401-4BEF-B017-56D30A515D80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroService.Thrift.RPC.Contract", "MicroService.Thrift.RPC.Contract\MicroService.Thrift.RPC.Contract.csproj", "{81E7B392-2613-4E9A-B5D4-E296E436B489}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroService.Thrift.RPC.Server", "MicroService.Thrift.RPC.Server\MicroService.Thrift.RPC.Server.csproj", "{2302FBF2-85A2-4923-80E4-FAFB02E403A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroService.Thrift.RPC.Client", "MicroService.Thrift.RPC.Client\MicroService.Thrift.RPC.Client.csproj", "{209FA33D-E318-46AD-B054-3D27172E3263}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +69,18 @@ Global
 		{057F2FBD-2401-4BEF-B017-56D30A515D80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{057F2FBD-2401-4BEF-B017-56D30A515D80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{057F2FBD-2401-4BEF-B017-56D30A515D80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81E7B392-2613-4E9A-B5D4-E296E436B489}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81E7B392-2613-4E9A-B5D4-E296E436B489}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81E7B392-2613-4E9A-B5D4-E296E436B489}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81E7B392-2613-4E9A-B5D4-E296E436B489}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2302FBF2-85A2-4923-80E4-FAFB02E403A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2302FBF2-85A2-4923-80E4-FAFB02E403A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2302FBF2-85A2-4923-80E4-FAFB02E403A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2302FBF2-85A2-4923-80E4-FAFB02E403A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{209FA33D-E318-46AD-B054-3D27172E3263}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{209FA33D-E318-46AD-B054-3D27172E3263}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{209FA33D-E318-46AD-B054-3D27172E3263}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{209FA33D-E318-46AD-B054-3D27172E3263}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
