@@ -9,6 +9,15 @@ namespace MicroServiceIdentityServer
 {
     public class Config
     {
+        public static IEnumerable<IdentityResource> GetIdentityResourceResources()
+        {
+            return new List<IdentityResource>
+            {
+                new IdentityResources.OpenId(), //必须要添加，否则报无效的scope错误
+                new IdentityResources.Profile()
+            };
+        }
+
         public static IEnumerable<ApiResource> GetApiResources()
         {
             List<ApiResource> resources = new List<ApiResource>();         
