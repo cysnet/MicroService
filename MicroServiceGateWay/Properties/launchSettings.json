@@ -19,7 +19,7 @@
     },
     "MicroServiceGateWay": {
       "commandName": "Project",
-      "commandLineArgs": "--ip 127.0.0.1 --port 2000 --identityip 127.0.0.1 --identityport 3000",
+      "commandLineArgs": "--ip 127.0.0.1 --port 2000 --iip 127.0.0.1 --iport 3000",
       "launchBrowser": true,
       "launchUrl": "api/values",
       "environmentVariables": {

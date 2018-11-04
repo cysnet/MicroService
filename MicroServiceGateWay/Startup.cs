@@ -41,16 +41,20 @@ namespace MicroServiceGateWay
             //services.AddOcelot(Configuration).AddConsul();
 
             //指定Identity Server的信息           
-            Action<IdentityServerAuthenticationOptions> isaOptMsg = o => {
-                o.Authority = $"http://{Configuration["identityip"]}:{Configuration["identityport"]}";
-                o.ApiName = "MsgAPI";//要连接的应用的名字            
-                o.RequireHttpsMetadata = false;
-                //o.SupportedTokens = SupportedTokens.Both;
-                //o.ApiSecret = "123321";//秘钥            
-            };
-
+            services.AddMvc();
             services.AddAuthentication("Bearer")
-                .AddIdentityServerAuthentication("MsgKey", isaOptMsg);
+              .AddIdentityServerAuthentication(options =>
+              {
+                  options.Authority = $"http://{Configuration["iip"]}:{Configuration["iport"]}";
+                  options.RequireHttpsMetadata = false;
+                  options.ApiName = "MsgAPI";
+              });
+            services.AddAuthentication("Bearer")
+                .AddIdentityServerAuthentication("MsgKey", o => {
+                    o.Authority = $"http://{Configuration["iip"]}:{Configuration["iport"]}";
+                    o.ApiName = "MsgAPI";//要连接的应用的名字            
+                    o.RequireHttpsMetadata = false;           
+                });
             services.AddOcelot(Configuration).AddConsul();
             //services.AddMvc();
         }
@@ -62,6 +66,9 @@ namespace MicroServiceGateWay
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseAuthentication();
+            app.UseMvc();
             app.Use(async (context, next) =>
             {
                 //await context.Response.WriteAsync("进入第一个委托 执行下一个委托之前\r\n");
@@ -70,9 +77,9 @@ namespace MicroServiceGateWay
                 await next.Invoke();
                 //await context.Response.WriteAsync("结束第一个委托 执行下一个委托之后\r\n");
             });
-            app.UseAuthentication();
- 
             app.UseOcelot().Wait();//不要忘了写Wait 
+
+
         }
     }
 }

@@ -29,7 +29,6 @@ namespace IdentityClient
                 {
                     options.Authority = $"http://{Configuration["iip"]}:{Configuration["iport"]}";
                     options.RequireHttpsMetadata = false;
-
                     options.ApiName = "MsgAPI";
                 });
         }
@@ -42,6 +41,14 @@ namespace IdentityClient
                 app.UseDeveloperExceptionPage();
             }
             app.UseAuthentication();
+            app.Use(async (context, next) =>
+            {
+                //await context.Response.WriteAsync("进入第一个委托 执行下一个委托之前\r\n");
+                //调用管道中的下一个委托
+
+                await next.Invoke();
+                //await context.Response.WriteAsync("结束第一个委托 执行下一个委托之后\r\n");
+            });
             app.UseMvc();
         }
     }
