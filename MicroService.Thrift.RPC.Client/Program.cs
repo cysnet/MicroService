@@ -16,6 +16,11 @@ namespace MicroService.Thrift.RPC.Client
                 transport.Open();
                 User u = clientUser.Get(1);
                 Console.WriteLine($"{u.Id},{u.Name}");
+                var list = clientUser.GetAll();
+                list.ForEach(e =>
+                {
+                    Console.WriteLine($"{e.Id},{e.Name}");
+                });
             }
         }
     }

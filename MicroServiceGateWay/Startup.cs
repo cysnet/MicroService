@@ -72,11 +72,8 @@ namespace MicroServiceGateWay
             app.UseMvc();
             app.Use(async (context, next) =>
             {
-                //await context.Response.WriteAsync("进入第一个委托 执行下一个委托之前\r\n");
-                //调用管道中的下一个委托
-
+                context.Request.Headers.Add("name", "cys");
                 await next.Invoke();
-                //await context.Response.WriteAsync("结束第一个委托 执行下一个委托之后\r\n");
             });
             app.UseOcelot().Wait();//不要忘了写Wait 
 
