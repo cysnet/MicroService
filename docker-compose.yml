@@ -1,0 +1,16 @@
+version: '2'
+services:
+        chenyishitest:
+                container_name: chenyishitest
+                image: chenyishi/cystest:1.0
+                env_file:
+                        - ./common.env
+        chenyishitest2:
+                container_name: chenyishitest2
+                image: cystest2:1.0
+                ports:
+                        - "5000:5000"
+                links:
+                        - chenyishitest
+                environment:
+                        - geturl=http://chenyishitest:1000/api/values
